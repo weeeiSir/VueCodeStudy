@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  </div>
+  <script src="./reactive.js"></script>
+  <!-- <script src="./t-reactive.js"></script> -->
+  <script>
+    const data = {
+      age: 1
+    }
+    const state = reactive(data)
+    effect(() => {
+      console.log('执行了')
+      app.innerHTML= `
+        <h1>小明今年${state.age}岁</h1>
+      `
+    })
+    setTimeout(() => {
+      state.age++
+    }, 1000)
+
+
+  </script>
+</body>
+</html>
